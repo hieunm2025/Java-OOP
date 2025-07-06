@@ -2,9 +2,12 @@ import java.util.Scanner;
 
 public class J04005_KhaiBaoLopThiSinh {
     static class ThiSinh{
-        String hoTen;
-        String ngaySinh;
-        float diem1,diem2,diem3;
+        private String hoTen;
+        private String ngaySinh;
+        private float diem1, diem2, diem3;
+
+        public ThiSinh() {
+        }
         
         public void nhap(Scanner sc){
             hoTen = sc.nextLine();
@@ -13,9 +16,25 @@ public class J04005_KhaiBaoLopThiSinh {
             diem2 = Float.parseFloat(sc.nextLine());
             diem3 = Float.parseFloat(sc.nextLine());
         }
+        
+        public float tinhTongDiem(){
+            return diem1 + diem2 + diem3;
+        }
+        
         public void xuat(){
-            float tong = diem1 + diem2 + diem3;
-            System.out.printf("%s %s %.1f",hoTen,ngaySinh,tong);
+            System.out.printf("%s %s %.1f",hoTen,ngaySinh,tinhTongDiem());
+        }
+
+        public String getHoTen() {
+            return hoTen;
+        }
+
+        public String getNgaySinh() {
+            return ngaySinh;
+        }
+        
+        public float getTongDiem(){
+            return tinhTongDiem();
         }
     }
     public static void main(String[] args) {
